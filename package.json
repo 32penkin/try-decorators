@@ -1,0 +1,23 @@
+{
+  "name": "try-decorators",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/32penkin/try-decorators.git"
+  },
+  "author": "Yauhen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/32penkin/try-decorators/issues"
+  },
+  "homepage": "https://github.com/32penkin/try-decorators#readme",
+  "dependencies": {
+    "typescript": "^2.3.3"
+  }
+}
