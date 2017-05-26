@@ -1,9 +1,9 @@
-import { log } from './src/log.decorator';
-import { checkAccess } from './src/checkAccess.decorator'
-import { cacheDecorator } from './src/cache.decorator';
-import { debounce } from './src/debounce.decorator';
-// import { timingDecorator } from './src/timing.decorator';
-import { throttle } from './src/throttle.decorator';
+import {log} from './src/log.decorator';
+import {checkAccess} from './src/checkAccess.decorator'
+import {cacheDecorator} from './src/cache.decorator';
+import {debounce} from './src/debounce.decorator';
+import {timingDecorator} from './src/timing.decorator';
+import {throttle} from './src/throttle.decorator';
 
 
 class ForCheck {
@@ -32,6 +32,21 @@ class ForCheck {
     console.log('qwe' + x);
     return 'qwe' + x;
   }
+  
+  @timingDecorator
+  lonnng() {
+    console.log('123123123123');
+    console.log('123123123123');
+    console.log('123123123123');
+    console.log('123123123123');
+    console.log('123123123123');
+    console.log('123123123123');
+    console.log('123123123123');
+    console.log('123123123123');
+    console.log('123123123123');
+    console.log('123123123123');
+  }
+  
 }
 
 const fc1 = new ForCheck();
@@ -55,4 +70,7 @@ const fc1 = new ForCheck();
 //
 // console.log(a == b);
 
-fc1.method4(3);
+// fc1.method4(3);
+
+
+console.log(fc1.lonnng());
