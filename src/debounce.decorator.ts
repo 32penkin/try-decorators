@@ -1,14 +1,17 @@
 export function debounce(wait: number) {
   return function (target: any, key: any, func: any) {
     let state: any = null;
-    let Cooling = 1;
+    enum StateType {
+      STARTED,
+      STOPPED
+    }
     return {
       value: function () {
-        if(state) return;
+        if(state === StateType.STARTED) return;
         
         func.value.apply(this, arguments);
-        state = Cooling;
-        setTimeout(() => {state = null}, wait);
+        state = StateType.STARTED;
+        setTimeout(() => {state = StateType.STOPPED}, wait);
       }
     };
   }
