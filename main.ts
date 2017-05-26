@@ -24,7 +24,13 @@ class ForCheck {
   
   @cacheDecorator
   method3(x: any) {
-    return 1000 + x;
+    return 1000 * x;
+  }
+  
+  @checkAccess(false)
+  method4(x: any) {
+    console.log('qwe' + x);
+    return 'qwe' + x;
   }
 }
 
@@ -40,3 +46,13 @@ const fc1 = new ForCheck();
 // fc1.method2('second');
 // fc1.method2('third');
 
+//fc1.method3(1);
+
+// const a = fc1.method3(1);
+// let b = fc1.method3(1);
+//
+// // b = fc1.method3(4);
+//
+// console.log(a == b);
+
+fc1.method4(3);
