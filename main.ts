@@ -1,31 +1,20 @@
 import { log } from './src/log.decorator';
 import { checkAccess, isAdmin } from './src/checkAccess.decorator'
 import { cacheDecorator } from './src/cache.decorator';
+import { debounce } from './src/debounce.decorator';
+import { timingDecorator } from './src/timing.decorator';
 
 
 
-
-
-class Example {
-  
-  @cacheDecorator
-  forFun(x: number) {
-    return Math.random() * x;
+class ForCheck {
+  @debounce(1000)
+  method(x: any) {
+    console.log(x);
   }
 }
 
-let ex1 = new Example();
-ex1.forFun(1);
+const fc1 = new ForCheck();
 
-let a = ex1.forFun(1);
-let b = ex1.forFun(1);
-
-
-b = ex1.forFun(2);
-
-console.log(a == b);
-
-
-
-
-
+setTimeout( function() { fc1.method(3) }, 100);
+setTimeout( function() { fc1.method(4) }, 1100);
+setTimeout( function() { fc1.method(5) }, 1500);
