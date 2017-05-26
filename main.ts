@@ -1,9 +1,9 @@
-import {log} from './src/log.decorator';
-import {checkAccess, isAdmin} from './src/checkAccess.decorator'
-import {cacheDecorator} from './src/cache.decorator';
-import {debounce} from './src/debounce.decorator';
+import { log } from './src/log.decorator';
+import { checkAccess } from './src/checkAccess.decorator'
+import { cacheDecorator } from './src/cache.decorator';
+import { debounce } from './src/debounce.decorator';
 // import { timingDecorator } from './src/timing.decorator';
-import {throttle} from './src/throttle.decorator';
+import { throttle } from './src/throttle.decorator';
 
 
 class ForCheck {
