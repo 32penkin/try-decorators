@@ -17,6 +17,7 @@ export function throttle(wait: number) {
   
         setTimeout(() => {
           isThrottled = false;
+          
           if(args) {
             dec.apply(that, args);
             args = null;

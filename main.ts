@@ -1,9 +1,9 @@
-import { log } from './src/log.decorator';
-import { checkAccess, isAdmin } from './src/checkAccess.decorator'
-import { cacheDecorator } from './src/cache.decorator';
-import { debounce } from './src/debounce.decorator';
-import { timingDecorator } from './src/timing.decorator';
-import { throttle } from './src/throttle.decorator';
+import {log} from './src/log.decorator';
+import {checkAccess, isAdmin} from './src/checkAccess.decorator'
+import {cacheDecorator} from './src/cache.decorator';
+import {debounce} from './src/debounce.decorator';
+// import { timingDecorator } from './src/timing.decorator';
+import {throttle} from './src/throttle.decorator';
 
 
 class ForCheck {
@@ -13,9 +13,19 @@ class ForCheck {
   }
   
   @throttle(1000)
-  method2 (x: any) {
-  console.log(x);
-}
+  method2(x: any) {
+    console.log(x);
+  }
+  
+  @log('llala')
+  add(a: any, b: any) {
+    return a + b;
+  }
+  
+  @cacheDecorator
+  method3(x: any) {
+    return 1000 + x;
+  }
 }
 
 const fc1 = new ForCheck();
@@ -24,8 +34,9 @@ const fc1 = new ForCheck();
 // setTimeout( function() { fc1.method(4) }, 1100);
 // setTimeout( function() { fc1.method(5) }, 1500);
 
-fc1.method2('first');
-fc1.method2('lalala');
-fc1.method2('lalalalalaala');
-fc1.method2('second');
-fc1.method2('third');
+// fc1.method2('first');
+// fc1.method2('lalala');
+// fc1.method2('lalalalalaala');
+// fc1.method2('second');
+// fc1.method2('third');
+
