@@ -34,17 +34,13 @@ class ForCheck {
   }
   
   @timingDecorator
-  lonnng() {
-    console.log('123123123123');
-    console.log('123123123123');
-    console.log('123123123123');
-    console.log('123123123123');
-    console.log('123123123123');
-    console.log('123123123123');
-    console.log('123123123123');
-    console.log('123123123123');
-    console.log('123123123123');
-    console.log('123123123123');
+  lonnng(x: number) {
+    console.log(this.fact(x));
+  }
+  
+  fact(n: number) {
+    if(n === 1) return 1;
+    return n * this.fact(n - 1)
   }
   
 }
@@ -73,4 +69,4 @@ const fc1 = new ForCheck();
 // fc1.method4(3);
 
 
-console.log(fc1.lonnng());
+console.log(fc1.lonnng(13));

@@ -1,18 +1,18 @@
 export function throttle(wait: number) {
-  return function (target: any, key: any, func: any) {
+  return function (target: any, key: any, decs: any) {
     let isThrottled = false;
-    let args: any;
+    let argsForSave: any;
     let that: any;
     
     return {
-      value: function dec() {
+      value: function dec(...args: any[]) {
         if(isThrottled) {
-          args = arguments;
+          argsForSave = args;
           that = this;
           return;
         }
   
-        func.value.apply(this, arguments);
+        decs.value.apply(this, args);
         isThrottled = true;
   
         setTimeout(() => {
@@ -20,7 +20,7 @@ export function throttle(wait: number) {
           
           if(args) {
             dec.apply(that, args);
-            args = null;
+            argsForSave = null;
             that = null;
           }
         }, wait);

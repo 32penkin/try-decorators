@@ -1,14 +1,13 @@
-export function cacheDecorator(target: any, key: any, func: any) {
-  let cache: any = {};
+export function cacheDecorator(target: any, key: any, desc: any) {
+  const cache: any = {};
   return {
     value: function (...args: any[]) {
-      args.forEach(item => {
+      const item = JSON.stringify(args);
         if(!(item in cache)){
-          cache[item] = func.value.call(this, item);
+          cache[item] = desc.value.call(this, item);
         } else {
           return cache[item];
         }
-      });
     }
   }
 }

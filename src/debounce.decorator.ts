@@ -3,10 +3,10 @@ export function debounce(wait: number) {
     let state: any = null;
     
     return {
-      value: function () {
+      value: function (...args: any[]) {
         if(state === StateType.STARTED) return;
         
-        func.value.apply(this, arguments);
+        func.value.apply(this, args);
         state = StateType.STARTED;
         setTimeout(() => {state = StateType.STOPPED}, wait);
       }
