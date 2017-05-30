@@ -3,11 +3,14 @@ export function cacheDecorator(target: any, key: any, desc: any) {
   return {
     value: function (...args: any[]) {
       const item = JSON.stringify(args);
-        if(!(item in cache)){
-          cache[item] = desc.value.call(this, item);
-        } else {
-          return cache[item];
-        }
+      if(!(cache[item])){
+        cache[item] = desc.value.apply(this, args);
+        console.log('A function call with such parameters was not cached, but now it is in cache  |  Result: ' + desc.value.apply(this, args));
+        return desc.value.apply(this, args);
+      } else {
+        console.log('A function call with such parameters was cached  |  Result: ' + cache[item]);
+        return cache[item];
+      }
     }
   }
 }
